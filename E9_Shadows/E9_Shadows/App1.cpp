@@ -292,6 +292,15 @@ void App1::finalPass()
 	renderer->beginScene(0.39f, 0.58f, 0.92f, 1.0f);
 	camera->update();
 
+	if (wireframeToggle)
+	{
+		renderer->setWireframeMode(true);
+	}
+	else
+	{
+		renderer->setWireframeMode(false);
+	}
+		
 
 	Light* activeLight = pointLightOn ? pointLight : light;
 	ID3D11ShaderResourceView* activeShadow = pointLightOn ? shadowMap2->getDepthMapSRV() : shadowMap->getDepthMapSRV();
